@@ -29,6 +29,7 @@ public class Test1 {
         WebElement searchField = driver.findElement(SEARCH_FIELD_SELECTOR);
         searchField.sendKeys("apple");
         searchField.sendKeys(Keys.ENTER);
+        driver.quit();
 
         //driver.findElement(By.linkText("Core Java")).click();
 
