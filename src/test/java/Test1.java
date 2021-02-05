@@ -11,7 +11,7 @@ public class Test1 {
     public static void main(String[] args) {
 
         // System Property for Chrome Driver
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/resources/driver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\.."+"\\drivers\\chrome\\chromedriver.exe");
 
         // Instantiate a ChromeDriver class.
         WebDriver driver=new ChromeDriver();
@@ -29,11 +29,8 @@ public class Test1 {
         WebElement searchField = driver.findElement(SEARCH_FIELD_SELECTOR);
         searchField.sendKeys("apple");
         searchField.sendKeys(Keys.ENTER);
+
         driver.quit();
-
-        //driver.findElement(By.linkText("Core Java")).click();
-
-        //@RT7IRTURTYYYYrivdfgher.quit();
 
     }
 
