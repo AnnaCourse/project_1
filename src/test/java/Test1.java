@@ -12,6 +12,7 @@ public class Test1 {
 
         // System Property for Chrome Driver
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/resources/driver/chromedriver");
+// TEST PUSH
 
         // Instantiate a ChromeDriver class.
         WebDriver driver=new ChromeDriver();
