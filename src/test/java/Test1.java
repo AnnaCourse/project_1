@@ -2,16 +2,19 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.qamation.cource.config.Config;
 
 
 public class Test1 {
     private static final By SEARCH_FIELD_SELECTOR = By.cssSelector(".search-input__input");
 
     public static void main(String[] args) {
+        String env = args[0];
+        System.setProperty("env",env);
+        Config config = Config.getConfig();
 
         // System Property for Chrome Driver
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\.."+"\\drivers\\chrome\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", Config.getConfig().getChromeDriverPath());
 
         // Instantiate a ChromeDriver class.
         WebDriver driver=new ChromeDriver();
