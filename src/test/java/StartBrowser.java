@@ -12,7 +12,8 @@ public class StartBrowser {
 
         // System Property for Chrome Driver
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\.."+"\\drivers\\chrome\\chromedriver.exe");
-
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+System.getProperty("chromeDriverPath"));
+        System.setProperty("webdriver.chrome.driver", System.getProperty("chromeDriverPath"));
         // Instantiate a ChromeDriver class.
         WebDriver driver = new ChromeDriver();
 
@@ -28,6 +29,8 @@ public class StartBrowser {
         WebElement searchField = driver.findElement(SEARCH_FIELD_SELECTOR);
         searchField.sendKeys("apple");
         searchField.sendKeys(Keys.ENTER);
+
+        driver.quit();
 
 
 
