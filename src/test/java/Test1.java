@@ -10,6 +10,8 @@ public class Test1 {
 
     public static void main(String[] args) {
         String env = args[0];
+        String browserName = args[1];
+
         System.setProperty("env",env);
         Config config = Config.getConfig();
 
