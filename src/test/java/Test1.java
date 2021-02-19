@@ -6,7 +6,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.qamation.course.config.Config;
-import org.qamation.course.config.ConfigFF;
 
 
 public class Test1 {
@@ -36,7 +35,7 @@ public class Test1 {
                 //
                 else if (browserName.equalsIgnoreCase("Firefox")) {
                     //
-                    System.setProperty("webdriver.gecko.driver", ConfigFF.getConfig().getFirefoxDriverPath());
+                    System.setProperty("webdriver.gecko.driver", Config.getConfig().getFirefoxDriverPath());
                     DesiredCapabilities capabilities = DesiredCapabilities.firefox();
                     capabilities.setCapability("marionette", true);
                     WebDriver driver = new FirefoxDriver();
