@@ -6,17 +6,19 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.qamation.course.config.ConfigFF;
 
 
-public class FireFoxBrowser {
+public class FireFox {
 
-    public static final By SEARCH_FIELD_SELECTOR = By.cssSelector(".search-input__input");
+    private static final By SEARCH_FIELD_SELECTOR = By.cssSelector(".search-input__input");
 
-    public static void main (String[] args) throws InterruptedException {
+    public static void main (String[] args)  {
 
+        System.setProperty("env", args[0]);
 
         // System Property for Gecko Driver
-        System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\.."+"\\drivers\\firefox\\geckodriver.exe" );
+        System.setProperty("webdriver.gecko.driver", ConfigFF.getConfig().getFirefoxDriverPath());
 
         // Initialize Gecko Driver using Desired Capabilities Class
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
@@ -40,4 +42,5 @@ public class FireFoxBrowser {
     }
 
 }
+
 
