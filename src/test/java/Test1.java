@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.qamation.WebDriverFactory;
-import org.qamation.course.config.Config;
 
 
 public class Test1 {
@@ -13,33 +12,31 @@ public class Test1 {
 
     public static void main(String[] args) {
 
-//
         String env = args[0];
         String browserName = args[1];
 
-        System.setProperty("env",env);
-        Config config = Config.getConfig();
+        System.setProperty("env", env);
 
-                WebDriver driver = WebDriverFactory.getWebDriver("Chrome");
-                driver.manage().window().maximize();
+        WebDriver driver = WebDriverFactory.getWebDriver(browserName);
+        driver.manage().window().maximize();
 
-                // Launch Website
-                driver.navigate().to("http://loblaws.ca");
+        // Launch Website
+        driver.navigate().to("http://loblaws.ca");
 
-                WebDriverWait wait = new WebDriverWait(driver, 15);
-                //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15L), Duration.ofMillis(300));
-                wait.until(ExpectedConditions.elementToBeClickable(SEARCH_FIELD_SELECTOR));
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15L), Duration.ofMillis(300));
+        wait.until(ExpectedConditions.elementToBeClickable(SEARCH_FIELD_SELECTOR));
 
-                WebElement searchField = driver.findElement(SEARCH_FIELD_SELECTOR);
-                searchField.sendKeys("apple");
-                searchField.sendKeys(Keys.ENTER);
+        WebElement searchField = driver.findElement(SEARCH_FIELD_SELECTOR);
+        searchField.sendKeys("apple");
+        searchField.sendKeys(Keys.ENTER);
 
-                driver.quit();
+        driver.quit();
 
 
-            }
+    }
 
-        }
+}
 
 
         
