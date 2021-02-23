@@ -1,6 +1,6 @@
-package org.qamation.cource.config;
+package org.qamation.course.config;
 
-import org.qamation.cource.utils.ResourceUtils;
+import org.qamation.course.utils.ResourceUtils;
 
 public class Config {
 

@@ -1,4 +1,4 @@
-package org.qamation.cource.pages;
+package org.qamation.course.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
