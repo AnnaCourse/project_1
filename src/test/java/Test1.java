@@ -1,10 +1,10 @@
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.qamation.WebDriverFactory;
 import org.qamation.course.config.Config;
 
 
@@ -13,38 +13,14 @@ public class Test1 {
 
     public static void main(String[] args) {
 
-        System.setProperty("env",args[0]);
 //
         String env = args[0];
         String browserName = args[1];
+
+        System.setProperty("env",env);
         Config config = Config.getConfig();
 
-
-        WebDriver driver = WebDriverFactory.getWebDriver(browserName);}
-
-        private static class WebDriverFactory {
-            public static WebDriver getWebDriver(String browserName) {
-
-                //
-                if (browserName.equalsIgnoreCase("Chrome")) {
-                    //
-                    WebDriver driver = new ChromeDriver();
-
-                    return new ChromeDriver();
-                }
-                //
-                else if (browserName.equalsIgnoreCase("Firefox")) {
-                    //
-                    System.setProperty("webdriver.gecko.driver", Config.getConfig().getFirefoxDriverPath());
-                    DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-                    capabilities.setCapability("marionette", true);
-                    WebDriver driver = new FirefoxDriver();
-
-                    return new FirefoxDriver();
-                }
-
-                //Maximize the browser
-                WebDriver driver = new FirefoxDriver();
+                WebDriver driver = WebDriverFactory.getWebDriver("Chrome");
                 driver.manage().window().maximize();
 
                 // Launch Website
@@ -60,11 +36,10 @@ public class Test1 {
 
                 driver.quit();
 
-                return driver;
 
             }
 
         }
-    }
+
 
         
