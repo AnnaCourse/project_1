@@ -17,13 +17,14 @@ public class Config {
     private String rootPath;
     private String resourcesPath;
     private String chromeDriverPath;
+    private String firefoxDriverPath;
     private String env;
 
 
     private long pauseInTest;
 
     private Config() {
-        env=System.getProperty("env");
+        env = System.getProperty("env");
         if (env == null) {
             System.err.println("env is not provided. Please set -Denv=<folder> what is /resources/env/<folder> ");
             System.exit(-1);
@@ -50,8 +51,11 @@ public class Config {
     }
 
     public String getChromeDriverPath() {
-        return  chromeDriverPath;
+
+        return chromeDriverPath;
     }
+
+    public String getFirefoxDriverPath() { return firefoxDriverPath; }
 
     public long getPauseInTest() {
         return pauseInTest;
@@ -72,6 +76,10 @@ public class Config {
     private void setUpSuiteVariables() {
         chromeDriverPath = System.getProperty("chromedriver.path")+"/"+System.getProperty("chromedriver.name");
         pauseInTest = Long.parseLong(System.getProperty("PAUSE_IN_TEST_MILLS"));
+
+        firefoxDriverPath = System.getProperty("firefox.path") + "/" + System.getProperty("firefox.name");
+        pauseInTest = Long.parseLong(System.getProperty("PAUSE_IN_TEST_MILLS"));
     }
-}
+
+    }
 

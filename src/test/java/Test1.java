@@ -1,27 +1,20 @@
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.qamation.course.config.Config;
+import org.qamation.course.web.driver.WebDriverFactory;
 
 
 public class Test1 {
     private static final By SEARCH_FIELD_SELECTOR = By.cssSelector(".search-input__input");
 
     public static void main(String[] args) {
+
         String env = args[0];
         String browserName = args[1];
 
-        System.setProperty("env",env);
-        Config config = Config.getConfig();
+        System.setProperty("env", env);
 
-        // System Property for Chrome Driver
-        System.setProperty("webdriver.chrome.driver", Config.getConfig().getChromeDriverPath());
-
-        // Instantiate a ChromeDriver class.
-        WebDriver driver=new ChromeDriver();
-
-        //Maximize the browser
+        WebDriver driver = WebDriverFactory.getWebDriver(browserName);
         driver.manage().window().maximize();
 
         // Launch Website
@@ -37,6 +30,10 @@ public class Test1 {
 
         driver.quit();
 
+
     }
 
 }
+
+
+
